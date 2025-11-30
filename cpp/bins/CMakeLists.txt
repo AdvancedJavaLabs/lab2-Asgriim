@@ -1,0 +1,7 @@
+file(GLOB SOURCES "./*.cpp")
+foreach (SRC ${SOURCES})
+    get_filename_component(EXE_NAME ${SRC} NAME_WE)
+    message(STATUS "Found binary '${EXE_NAME}'")
+    add_executable(${EXE_NAME} ${SRC})
+    target_link_libraries(${EXE_NAME} amqpcpp ev lab2_util)
+endforeach ()
